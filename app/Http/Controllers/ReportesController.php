@@ -14,14 +14,19 @@ use App\Clases\Comun;
 
 class ReportesController extends Controller
 {
-  public function index()
-  {
-      return view('dashboard.reportes.index');
-  }
+	public function __construct()
+  	{
+      $this->middleware('auth');
+  	}
 
-  public function obtenerPeticiones($latitud, $longitud)
-  {
-    $peticiones = Peticion::all();
-    return $peticiones;
-  }
+  	public function index()
+  	{
+      return view('dashboard.reportes.index');
+  	}
+
+  	public function obtenerPeticiones($latitud, $longitud)
+  	{
+    	$peticiones = Peticion::all();
+    	return $peticiones;
+  	}
 }

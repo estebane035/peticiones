@@ -3,9 +3,9 @@
 @section('content')
   <div class="register-container full-height sm-p-t-30">
       <div class="d-flex justify-content-center flex-column full-height ">
-        <img src="images/logos/logo.png" alt="logo" data-src="images/logos/logo.png" data-src-retina="images/logos/logo.png" width="50" height="50">
-        <h3>O-IClinic</h3>
-        <p>Crea una cuenta en O-IClinic y descubre una manera más sencilla de administrar tu clinica dental</p>
+        <!--img src="images/logos/logo.png" alt="logo" data-src="images/logos/logo.png" data-src-retina="images/logos/logo.png" width="50" height="50"-->
+        <h3>Peticiones</h3>
+        <p>Crea una cuenta en peticiones</p>
         <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" id="form-register">
         @csrf
           <div class="row">
@@ -55,23 +55,6 @@
 
             <div class="col-md-12">
               <div class="form-group form-group-default">
-                <label>{{ __('Nombre clinica') }}</label>
-                <input type="text" name="clinica" class="form-control {{ $errors->has('clinica') ? ' is-invalid' : '' }}" value="{{ old('clinica') }}" required>
-
-                @if ($errors->has('clinica'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('clinica') }}</strong>
-                  </span>
-                @endif
-
-              </div>
-            </div>
-
-          </div>
-          <div class="row">
-
-            <div class="col-md-12">
-              <div class="form-group form-group-default">
                 <label>{{ __('Password') }}</label>
                 <input id="password" type="password" name="password" required  class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" required>
 
@@ -91,24 +74,6 @@
               <div class="form-group form-group-default">
                 <label>{{ __('Confirm Password') }}</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-md-12">
-              <div class="form-group form-group-default">
-                <label>Email</label>
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                @if ($errors->has('email'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('email') }}</strong>
-                </span>
-                @endif
-
               </div>
             </div>
 

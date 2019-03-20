@@ -59,14 +59,14 @@
             <a href="/peticiones" class="detailed">
               <span class="title">Peticiones</span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-usd"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-exclamation-triangle"></i></span>
           </li>
 
           <li class="{{ $menu == "Finanzas"?"active":"" }}">
             <a href="/reportes" class="detailed">
               <span class="title">Reportes</span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-usd"></i></span>
+            <span class="icon-thumbnail"><i class="fa fa-map"></i></span>
           </li>
 
         </ul>
@@ -93,8 +93,8 @@
           <!-- START User Info-->
           <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
 
-            <span class="bold">{{ /*Auth::User()->FullName()*/ "Prueba" }}</span>
-            <span class="semi-bold">({{ /*Auth::user()->tipo*/"ROL" }})</span>
+            <span class="bold">{{ Auth::User()->FullName() }}</span>
+            <span class="semi-bold">({{ Auth::user()->tipo }})</span>
           </div>
 
           <div class="dropdown pull-right hidden-md-down">

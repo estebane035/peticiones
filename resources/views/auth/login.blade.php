@@ -18,7 +18,7 @@
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-          <img src="images/logos/logo.png" alt="logo" data-src="images/logos/logo.png" data-src-retina="images/logos/logo.png" width="50" height="50"> Dental App
+          <!--img src="images/logos/logo.png" alt="logo" data-src="images/logos/logo.png" data-src-retina="images/logos/logo.png" width="50" height="50"--> Peticiones
           <p class="p-t-35">Inicia sesión</p>
           <!-- START Login Form -->
           <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
@@ -27,11 +27,11 @@
             <div class="form-group form-group-default">
               <label>{{ __('Username') }}</label>
               <div class="controls">
-                <input type="text" name="username" id="username" placeholder="Username" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required>
+                <input type="text" name="username" id="username" placeholder="Username" class="form-control {{ $errors->has('username') ? ' is-invalid' : '' }}" value="{{ old('username') }}" required>
 
-                @if ($errors->has('email'))
+                @if ($errors->has('username'))
                   <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong>{{ $errors->first('username') }}</strong>
                   </span>
                 @endif
 
