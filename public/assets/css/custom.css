@@ -1,0 +1,11 @@
+.opt-radio{
+	width: 10%;
+	height: 60px;
+	text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.opt-radio input[type=radio]{
+	visibility: hidden;
+}

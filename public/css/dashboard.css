@@ -1,0 +1,322 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+.no-border{
+  border:none !important;
+}
+.descripcionDataTable{
+  font-size: 14px;
+  color: darkgray;
+}
+.padding10px{
+	padding: 10px !important;
+}
+.seleccionarTodos{
+	position: relative;
+	top: 40px;
+}
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+#contenedor_imagen img{
+    max-width: 200px;
+}
+.d23{
+    height: 23px !important;
+    width: 23px !important;
+}
+
+.upBox{
+    position: absolute;
+    clear: both;
+    width: 70%;
+}
+.marginTop10px{
+    margin-top: 10px;
+}
+.marginTop15px{
+    margin-top: 10px;
+}
+
+/*CLIENTES*/
+.profile-image {
+  width: 120px;
+  float: left;
+}
+.profile-image img {
+  width: 96px;
+  height: 96px;
+}
+.profile-info {
+    margin-left: 120px;
+}
+.img-circle {
+  border-radius: 50%;
+}
+img.circle-border {
+  border: 6px solid #FFFFFF;
+  border-radius: 50%;
+}
+.wrapper {
+  padding: 0 20px;
+}
+.wrapper-content {
+  padding: 20px 10px 40px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+h5 {
+  font-size: 12px;
+}
+h6 {
+  font-size: 10px;
+}
+h3,
+h4,
+h5 {
+  margin-top: 5px !important;
+  font-weight: 600 !important;
+}
+.bg-gray{
+    background-color: #f0f0f0;
+}
+
+.table.bg-gray td{
+    background:#f0f0f0 !important;
+}
+.table.bg-transparent td{
+    background:transparent !important;
+}
+.p-l-40{
+    padding-left: 40px !important;
+}
+.thumbnail-wrapper.bordered.d80{
+    width: 80px;
+    height: 80px;
+}
+.social-user-profile80px {
+    width: 80px;
+}
+.btn-add-notes{
+  background: transparent;
+  background-image: none;
+  bottom: 8px;
+  display: block;
+  left: 50%;
+  margin-left: -40%;
+  position: absolute;
+  width: 83%;
+  border: 1px solid #968974;
+}
+
+table.dataTable td .noDataTable, table.dataTable th .noDataTable{
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+
+
+.telefonoRecarga{
+  font-size: 60px !important;
+  height: auto !important;
+}
+.white{
+  color:white;;
+}
+.bubble{
+    border-radius: 100%;
+    height: 15px !important;
+    width: 15px !important;
+    background-color: #f55753;
+    color: #fff;
+    position: absolute;
+    top: -6px;
+    float: right;
+    right: -5px;
+}
+.topRight{
+    top: 12px !important;
+    right: 36px !important;
+}
+.topRight2{
+    top: 12px !important;
+    right: 5px !important;
+}
+.bubbleNumbers{
+  font-size: 10px;
+  text-align: center;
+  padding-top: 1px;
+}
+.topRightChat{
+    top: 40px !important;
+    right: 6px !important;
+}
+.bubbleNumbersChat{
+  font-size: 10px;
+  text-align: center;
+  padding-top: 1px;
+  line-height: 12px;
+}
+/** Select corporate **/
+.select2-lg .select2-container .select2-selection.select2-selection--single {
+  height: 45px;
+  padding: 11px 13px;
+}
+.select2-lg .select2-container .select2-selection.select2-selection--single .select2-selection__rendered {
+  padding-top: 0px;
+  line-height: 22px;
+  font-size: 18px;
+}
+.select2-lg .select2-container .select2-selection.select2-selection--single .select2-selection__arrow {
+  bottom: 9px;
+}
+.select2-sm .select2-container .select2-selection.select2-selection--single {
+  height: 32px;
+  padding: 8px 9px;
+}
+.select2-sm .select2-container .select2-selection.select2-selection--single .select2-selection__rendered {
+  padding-top: 0px;
+  line-height: 16px;
+  font-size: 13px;
+}
+.select2-sm .select2-container .select2-selection.select2-selection--single .select2-selection__arrow {
+  bottom: 4px;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single {
+  padding-top: 20px;
+  height: 52px;
+  border: 0 !important;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single .select2-arrow b:before {
+  top: 20px;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--single .select2-chosen {
+  padding-left: 3px;
+  padding-top: 1px;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--multiple {
+  padding-top: 20px;
+  height: 52px;
+  border: 0px !important;
+}
+.form-group-default.form-group-default-select2 .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+  margin-top: 4px;
+}
+.form-group-default.form-group-default-select2.input-lg {
+  height: auto;
+  padding: 0;
+}
+.form-group-default.form-group-default-select2.input-lg .select2-container .select2-selection--single {
+  padding-top: 26px;
+  height: 58px;
+}
+.form-group-default.form-group-default-select2.input-lg .select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: 18px;
+}
+.form-group-default.form-group-default-select2.input-sm {
+  height: auto;
+  padding: 0;
+}
+.form-group-default.form-group-default-select2.input-sm .select2-container .select2-selection--single {
+  padding-top: 21px;
+  height: 49px;
+}
+.form-group-default.form-group-default-select2.input-sm .select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: 13px;
+}
+.form-group-default .select2-container .select2-selection,
+.select2-container-multi .select2-choices {
+  border-color: transparent;
+}
+select.full-width + .select2-container {
+  width: 100% !important;
+}
+.select2-container *:focus {
+  outline: none;
+}
+.select2-container .select2-selection {
+  background-image: none;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  padding: 2px 9px;
+  transition: border 0.2s linear 0s;
+}
+.select2-container .select2-selection .select2-selection__rendered {
+  padding: 0;
+  padding-left: 3px;
+  padding-top: 1px;
+}
+.select2-container .select2-selection .select2-selection__arrow {
+  top: auto;
+  bottom: 5px;
+  right: 10px !important;
+  left: auto;
+  background: transparent;
+  border-left: 0px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.select2-container .select2-selection.select2-selection--single {
+  height: 35px;
+}
+.select2-container .select2-selection > .select2-chosen {
+  margin-right: 26px;
+  margin-left: 0;
+}
+.select2-container.select2-drop-above .select2-choice {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: transparent;
+}
+.select2-container--default .select2-results__group {
+  color: #2c2c2c;
+}
+.select2-search input,
+.select2-search-choice-close,
+.select2-container .select2-choice abbr,
+.select2-container .select2-choice .select2-arrow b {
+  background-image: none !important;
+}
+
+.m-t{
+  margin-top: 20px;
+}
+
+.full-altura{
+   min-height: 86vh !important;
+}
+
+.full-width{
+  width: 100% !important;
+}
