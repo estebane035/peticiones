@@ -55,12 +55,14 @@
             <span class="icon-thumbnail"><i class="pg-home"></i></span>
           </li>
 
+          @if(Auth::user()->tipo == "Administrador")
           <li class="{{ $menu == "Finanzas"?"active":"" }}">
             <a href="/peticiones" class="detailed">
               <span class="title">Peticiones</span>
             </a>
             <span class="icon-thumbnail"><i class="fa fa-exclamation-triangle"></i></span>
           </li>
+          @endif
 
           <li class="{{ $menu == "Finanzas"?"active":"" }}">
             <a href="/reportes" class="detailed">

@@ -11,13 +11,19 @@
 |
 */
 
+Route::get("/", function(){
+	return view("landing");
+});
+
 //Dashboard
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/peticiones/cargarTablaNoAtendidas', 'PeticionesController@cargarTablaNoAtendidas');
+Route::get('/peticiones/cargarTablaHistorial', 'PeticionesController@cargarTablaHistorial');
 
 
 //Peticiones
-Route::get('/peticiones/cargarTabla', 'PeticionesController@cargarTabla');Route::get('/peticiones/{id_peticion}/delete', 'PeticionesController@delete');
+Route::get('/peticiones/cargarTabla', 'PeticionesController@cargarTabla');
+Route::get('/peticiones/{id_peticion}/delete', 'PeticionesController@delete');
 Route::get('/peticiones/{id_peticion}/atender', 'PeticionesController@atender');
 Route::put('/peticiones/{id_peticion}/atenderPeticion', 'PeticionesController@atenderPeticion');
 Route::resource('/peticiones', 'PeticionesController');

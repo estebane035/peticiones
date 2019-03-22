@@ -59,6 +59,25 @@ class PeticionesController extends Controller
       ->make(true);
   }
 
+  public function cargarTablaHistorial()
+  {
+    $registros = Peticion::all();
+    return Datatables::of($registros)
+      ->editColumn("coordenadas", function($registro){
+        return "Latitud: ".$registro->latitud."<br> Longitud: ".$registro->longitud;
+      })
+      ->addColumn('actions', function ($registro) {
+
+          $eliminar = $editar = $ver = "";
+            $eliminar='<i onclick="eliminar('.$registro->id.')" style="margin-right: 10px;" class="fa fa-trash fa-lg col-xs-3 text-center pointer" title="Delete"></i>';
+            $editar='<i onclick="editar('.$registro->id.')" style="margin-right: 10px;" class="fa fa-pencil fa-lg col-xs-3 text-center pointer" title="Edit"></i>';
+            $ver='<a href="/peticiones/'.$registro->id.'"><i style="margin-right: 10px;" class="fa fa-search fa-lg col-xs-3 text-center pointer" title="Ver"></i></a>';
+          return $editar.$eliminar.$ver;
+      })
+      ->rawColumns(['actions', 'coordenadas'])
+      ->make(true);
+  }
+
   public function create()
   {
     $registro = new Peticion;
