@@ -16,4 +16,6 @@ class Comentario extends Model
   protected $fillable = [
       'peticion_id', 'comentarios'
   ];
+
+  
 }
