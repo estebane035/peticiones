@@ -26,8 +26,7 @@ class ReportesController extends Controller
 
   	public function obtenerPeticiones($latitud, $longitud, $rango)
   	{
-  		$peticiones = DB::select(DB::raw('SELECT id, ( 3959 * acos( cos( radians(' . $latitud . ') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians(' . $longitud . ') ) + sin( radians(' . $latitud .') ) * sin( radians(latitud) ) ) ) AS distance FROM peticiones HAVING distance < ' . $rango . ' ORDER BY distance') );
-    	$peticiones = Peticion::all();
+  		$peticiones = DB::select(DB::raw('SELECT id, latitud, longitud, tipo, estatus, ( 3959 * acos( cos( radians(' . $latitud . ') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians(' . $longitud . ') ) + sin( radians(' . $latitud .') ) * sin( radians(latitud) ) ) ) AS distance FROM peticiones HAVING distance < ' . $rango . ' ORDER BY distance') );
     	return $peticiones;
   	}
 }
