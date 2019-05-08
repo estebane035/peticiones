@@ -28,6 +28,10 @@ Route::get('/peticiones/{id_peticion}/atender', 'PeticionesController@atender');
 Route::put('/peticiones/{id_peticion}/atenderPeticion', 'PeticionesController@atenderPeticion');
 Route::resource('/peticiones', 'PeticionesController');
 
+//Comentarios
+Route::get("/comentarios/create/{peticion_id}", "ComentariosController@create");
+Route::post("/comentarios", "ComentariosController@store");
+
 //Reportes
 Route::get("/reportes", 'ReportesController@index');
 Route::get("/reportes/{latitud}/{longitud}/{rango}", 'ReportesController@obtenerPeticiones');

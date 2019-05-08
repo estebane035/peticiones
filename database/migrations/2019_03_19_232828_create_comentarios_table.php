@@ -17,6 +17,8 @@ class CreateComentariosTable extends Migration
             $table->increments('id');
             $table->integer('peticion_id')->unsigned()->references('id')->on('peticiones');
             $table->foreign('peticion_id')->references('id')->on('peticiones')->onDelete("cascade");
+            $table->integer('user_id')->unsigned()->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string("comentarios");
             $table->timestamps();
         });

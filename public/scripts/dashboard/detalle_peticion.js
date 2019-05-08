@@ -12,3 +12,19 @@ $(document).ready(function(){
           title: 'Lugar de la peticion'
         });
 });
+
+function agregarComentario(id_peticion)
+{
+  _mostrarFormulario("/comentarios/create/" + id_peticion, //Url solicitud de datos
+                    "#modal_1", //Div que contendra el modal
+                    "#modal-crear", //Nombre modal
+                    "#contenido", //Elemento al que se le dara focus
+                    function(){
+                    }, //Funcion para el success
+                    "#form-agregar", //ID del Formulario
+                    "#carga-agregar", //Loading de guardar datos de formulario
+                    "#div-notificacion", //Div donde mostrara el error en caso de, vacio lo muestra en toastr
+                    function(){
+                      $('#modal-crear').modal('hide');
+                    });//Funcion en caso de guardar correctamente);
+}
