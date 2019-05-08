@@ -30,6 +30,6 @@ Route::resource('/peticiones', 'PeticionesController');
 
 //Reportes
 Route::get("/reportes", 'ReportesController@index');
-Route::get("/reportes/{latitud}/{longitud}", 'ReportesController@obtenerPeticiones');
+Route::get("/reportes/{latitud}/{longitud}/{rango}", 'ReportesController@obtenerPeticiones');
 
 Auth::routes();
