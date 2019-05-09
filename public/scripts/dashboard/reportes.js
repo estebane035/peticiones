@@ -43,7 +43,7 @@ function buscar()
 {
   latitud = $("#latitud").val();
   longitud = $("#longitud").val();
-  rango = $("#rango").val();
+  rango = parseFloat($("#rango").val());
 
   $.ajax({
     method: "GET",
@@ -52,8 +52,9 @@ function buscar()
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function (response) {
+      centro = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
       response.forEach(function(registro) {
-         latlon = {lat: registro.latitud, lng: registro.longitud};
+         latlon = {lat: parseFloat(registro.latitud), lng: parseFloat(registro.longitud)};
 
          icono = "";
          switch (registro.tipo) {
@@ -78,6 +79,18 @@ function buscar()
 
       });
       map.panTo(latlon);
+
+      var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.10,
+            map: map,
+            center: centro,
+            radius: rango * 1609
+          });
+
     },
     error: function(xhr, ajaxOptions, thrownError){
       alert("error");

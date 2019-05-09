@@ -52,8 +52,8 @@
 
               <div class="col-md-2">
                 <div class="form-group form-group-default required">
-                  <label>Rango (km)</label>
-                  <input type="number" id="rango" class="form-control" required="" value="500">
+                  <label>Rango (MI)</label>
+                  <input type="number" id="rango" class="form-control" required="" value="10">
                 </div>
               </div>
 

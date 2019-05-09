@@ -11,8 +11,8 @@ class PeticionesSeeder extends Seeder
      */
     public function run()
     {
-      factory('App\Peticion', 2250)->states("Seguridad Publica")->create();
-      factory('App\Peticion', 1730)->states("Asistencia Medica")->create();
-      factory('App\Peticion', 300)->states("Proteccion Civil")->create();
+      factory('App\Peticion', 22)->states("Seguridad Publica")->create(); //2250
+      factory('App\Peticion', 17)->states("Asistencia Medica")->create(); //1730
+      factory('App\Peticion', 30)->states("Proteccion Civil")->create(); //300
     }
 }
