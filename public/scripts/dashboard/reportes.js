@@ -44,16 +44,19 @@ function buscar()
   latitud = $("#latitud").val();
   longitud = $("#longitud").val();
   rango = parseFloat($("#rango").val());
+  rango_alerta = parseFloat($("#rango_alerta").val());
 
   $.ajax({
     method: "GET",
-    url: "/reportes/" + latitud + "/" + longitud  + "/" + rango ,
+    url: "/reportes/" + latitud + "/" + longitud  + "/" + rango + "/" + rango_alerta ,
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function (response) {
       centro = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
-      response.forEach(function(registro) {
+      peticiones = response.peticiones;
+      alerta = response.alerta;
+      peticiones.forEach(function(registro) {
          latlon = {lat: parseFloat(registro.latitud), lng: parseFloat(registro.longitud)};
 
          icono = "";
@@ -81,15 +84,28 @@ function buscar()
       map.panTo(latlon);
 
       var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#00FFFF',
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: '#FF0000',
+            fillColor: '#00FFFF',
             fillOpacity: 0.10,
             map: map,
             center: centro,
             radius: rango * 1609
           });
+
+      alerta.forEach(function(registro) {
+        var cityCircle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.10,
+              map: map,
+              center: {lat: parseFloat(registro.latitud), lng: parseFloat(registro.longitud)},
+              radius: registro.rango * 1609
+            });
+      });
 
     },
     error: function(xhr, ajaxOptions, thrownError){

@@ -34,6 +34,6 @@ Route::post("/comentarios", "ComentariosController@store");
 
 //Reportes
 Route::get("/reportes", 'ReportesController@index');
-Route::get("/reportes/{latitud}/{longitud}/{rango}", 'ReportesController@obtenerPeticiones');
+Route::get("/reportes/{latitud}/{longitud}/{rango}/{rango_alerta}", 'ReportesController@obtenerPeticiones');
 
 Auth::routes();

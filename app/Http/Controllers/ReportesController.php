@@ -24,9 +24,26 @@ class ReportesController extends Controller
       return view('dashboard.reportes.index');
   	}
 
-  	public function obtenerPeticiones($latitud, $longitud, $rango)
+  	public function obtenerPeticiones($latitud, $longitud, $rango, $rango_alerta)
   	{
-  		$peticiones = DB::select(DB::raw('SELECT id, latitud, longitud, tipo, estatus, ( 3959 * acos( cos( radians(' . $latitud . ') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians(' . $longitud . ') ) + sin( radians(' . $latitud .') ) * sin( radians(latitud) ) ) ) AS distance FROM peticiones HAVING distance < ' . $rango . ' ORDER BY distance') );
-    	return $peticiones;
+			$cantidadMaxima = 0;
+			$alerta = array();
+			$peticiones = DB::select(DB::raw('SELECT id, latitud, longitud, tipo, estatus, ( 3959 * acos( cos( radians(' . $latitud . ') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians(' . $longitud . ') ) + sin( radians(' . $latitud .') ) * sin( radians(latitud) ) ) ) AS distance FROM peticiones HAVING distance < ' . $rango . ' ORDER BY distance') );
+			foreach ($peticiones as $peticion)
+			{
+				$peticionEspecifica = DB::select(DB::raw('SELECT id, latitud, longitud, tipo, estatus, ( 3959 * acos( cos( radians(' . $peticion->latitud . ') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians(' . $peticion->longitud . ') ) + sin( radians(' . $peticion->latitud .') ) * sin( radians(latitud) ) ) ) AS distance FROM peticiones where id != '.$peticion->id.' HAVING distance < '.$rango_alerta.' ORDER BY distance') );
+				$cantidad = count($peticionEspecifica);
+				if ($cantidad >= $cantidadMaxima)
+				{
+					if ($cantidad > $cantidadMaxima)
+					{
+						$alerta = array();
+						$cantidadMaxima = $cantidad;
+					}
+
+					 array_push($alerta, ["latitud" => $peticion->latitud, "longitud" => $peticion->longitud, "rango" => $rango_alerta, "cantidad" => $cantidadMaxima]);
+				}
+			}
+			return ["alerta" => $alerta, "peticiones" => $peticiones];
   	}
 }

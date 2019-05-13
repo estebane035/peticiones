@@ -36,21 +36,32 @@
           <div class="card-block">
             <div class="row">
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group form-group-default required">
                   <label>Latitud</label>
                   <input type="number" id="latitud" class="form-control" required="">
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group form-group-default required">
                   <label>Longitud</label>
                   <input type="number" id="longitud" class="form-control" required="">
                 </div>
               </div>
 
-              <div class="col-md-2">
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-5">
+                <div class="form-group form-group-default required">
+                  <label>Rango de alerta (MI)</label>
+                  <input type="number" id="rango_alerta" class="form-control" required="" value="1">
+                </div>
+              </div>
+
+              <div class="col-md-5">
                 <div class="form-group form-group-default required">
                   <label>Rango (MI)</label>
                   <input type="number" id="rango" class="form-control" required="" value="10">
