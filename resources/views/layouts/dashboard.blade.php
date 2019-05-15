@@ -56,15 +56,35 @@
           </li>
 
           @if(Auth::user()->tipo == "Administrador")
-          <li class="{{ $menu == "Finanzas"?"active":"" }}">
-            <a href="/peticiones" class="detailed">
+          <li class=" {{ ($menu == "Seguridad" || $menu == "Proteccion" || $menu == "Asistencia" || $menu == "Todas" )?"open active":"" }}">
+            <a href="javascript:;">
               <span class="title">Peticiones</span>
+              <span class="arrow {{ ($menu == "Seguridad" || $menu == "Proteccion" || $menu == "Asistencia" || $menu == "Todas" )?"open active":"" }}"></span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-exclamation-triangle"></i></span>
+            <span class="icon-thumbnail">PT</span>
+            <ul class="sub-menu">
+              <li class="{{ $menu == "Seguridad"?"active":"" }}">
+                <a href="/peticiones/especifica/Seguridad">Seguridad</a>
+                <span class="icon-thumbnail">S</span>
+              </li>
+              <li class="{{ $menu == "Proteccion"?"active":"" }}">
+                <a href="/peticiones/especifica/Proteccion">Proteccion Civil</a>
+                <span class="icon-thumbnail">PC</span>
+              </li>
+              <li class="{{ $menu == "Asistencia"?"active":"" }}">
+                <a href="/peticiones/especifica/Asistencia">Asistencia Medica</a>
+                <span class="icon-thumbnail">A</span>
+              </li>
+              <li class="{{ $menu == "Todas"?"active":"" }}">
+                <a href="/peticiones">Todas</a>
+                <span class="icon-thumbnail">T</span>
+              </li>
+            </ul>
           </li>
           @endif
 
-          <li class="{{ $menu == "Finanzas"?"active":"" }}">
+
+          <li class="{{ $menu == "Reportes"?"active":"" }}">
             <a href="/reportes" class="detailed">
               <span class="title">Reportes</span>
             </a>

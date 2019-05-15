@@ -23,13 +23,14 @@ class ComentariosController extends Controller
   	public function create($peticion_id)
 	{
 		$registro = new Comentario;
-	    return view('dashboard.peticiones.comentarios.agregar', ['registro' => $registro, "peticion_id" => $peticion_id]);
+	   return view('dashboard.peticiones.comentarios.agregar', ['registro' => $registro, "peticion_id" => $peticion_id]);
 	}
 
 	public function store(Request $request)
 	{
 	    if($request->ajax())
 	    {
+				$request->merge(["user_id" => Auth::User()->id]);
 	    	return BD::crear("Comentario", $request);
 	    }
 	    return response()->json(['message' => 'Petición incorrecta'], 500);

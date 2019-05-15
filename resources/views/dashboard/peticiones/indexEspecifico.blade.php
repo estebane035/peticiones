@@ -1,4 +1,4 @@
-@extends('layouts.dashboard', ['menu' => "Todas"])
+@extends('layouts.dashboard', ['menu' => $tipo])
 
 @section('content')
 
@@ -43,8 +43,7 @@
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Coordenadas</th>
-                <th>Tipo</th>
+                <th>Coordenadas</th>>
                 <th>Estatus</th>
                 <th>Acciones</th>
               </tr>
@@ -58,10 +57,11 @@
     </div>
   </div>
 </div>
+<input type="hidden" id="_tipo" value="{{ $tipo }}">
  <!-- END CONTAINER FLUID -->
 
 @stop
 
 @section('scripts')
-  {!!Html::script('scripts/dashboard/peticiones.js')!!}
+  {!!Html::script('scripts/dashboard/peticionesEspecificas.js')!!}
 @stop

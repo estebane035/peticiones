@@ -2,6 +2,14 @@ var map;
 var latlon;
 var marcador;
 var zoom = 12;
+var markers = [];
+var circulos = [];
+var marker;
+var cityCircle;
+
+$(document).ready(function(){
+  $('#datepicker-range').datepicker({ format: 'yyyy-mm-dd' });
+});
 
 function initMap()
 {
@@ -43,12 +51,15 @@ function buscar()
 {
   latitud = $("#latitud").val();
   longitud = $("#longitud").val();
+  start = $("#start").val();
+  end = $("#end").val();
   rango = parseFloat($("#rango").val());
   rango_alerta = parseFloat($("#rango_alerta").val());
+  limpiarMapa();
 
   $.ajax({
     method: "GET",
-    url: "/reportes/" + latitud + "/" + longitud  + "/" + rango + "/" + rango_alerta ,
+    url: "/reportes/" + latitud + "/" + longitud  + "/" + rango + "/" + rango_alerta + "/" + start + "/" + end ,
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
@@ -71,7 +82,7 @@ function buscar()
               icono = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"
               break;
          }
-         var marker = new google.maps.Marker({
+         marker = new google.maps.Marker({
           position: latlon,
           map: map,
           title:  registro.tipo + "\n" + registro.estatus,
@@ -79,11 +90,12 @@ function buscar()
             url: icono
           }
         });
+        markers.push(marker);
 
       });
       map.panTo(latlon);
 
-      var cityCircle = new google.maps.Circle({
+      cityCircle = new google.maps.Circle({
             strokeColor: '#00FFFF',
             strokeOpacity: 0.8,
             strokeWeight: 2,
@@ -93,9 +105,10 @@ function buscar()
             center: centro,
             radius: rango * 1609
           });
+      circulos.push(cityCircle);    
 
       alerta.forEach(function(registro) {
-        var cityCircle = new google.maps.Circle({
+        cityCircle = new google.maps.Circle({
               strokeColor: '#FF0000',
               strokeOpacity: 0.8,
               strokeWeight: 2,
@@ -105,6 +118,7 @@ function buscar()
               center: {lat: parseFloat(registro.latitud), lng: parseFloat(registro.longitud)},
               radius: registro.rango * 1609
             });
+        circulos.push(cityCircle);
       });
 
     },
@@ -112,4 +126,17 @@ function buscar()
       alert("error");
     }
   });
+}
+
+function limpiarMapa()
+{
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+
+  for (var i = 0; i < circulos.length; i++) {
+    circulos[i].setMap(null);
+  }
+  circulos = [];
 }

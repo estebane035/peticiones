@@ -8,6 +8,7 @@ $factory->define(App\Peticion::class, function (Faker $faker) {
       	'latitud' => $faker->randomFloat(8, 20.4888926, 20.7563943),
       	'longitud' => $faker->randomFloat(8, -103.4606375, -103.2112008),
       	'estatus' => $faker->randomElement(["Atendida", "No Atendida", "En Proceso"]),
+      	'created_at' => $faker->dateTimeBetween('-14 days','now'),
     ];
 });
 

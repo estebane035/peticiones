@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  var latitud = parseInt($("#latitud").val());
-  var longitud = parseInt($("#longitud").val());
+  var latitud = parseFloat($("#latitud").val());
+  var longitud = parseFloat($("#longitud").val());
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: latitud, lng: longitud},
     zoom: 8

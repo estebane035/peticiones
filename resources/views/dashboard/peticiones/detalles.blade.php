@@ -78,14 +78,14 @@
         </div>
 
   		<div class="tab-pane" id="tab-fillup2" aria-expanded="false">
-  			<div class="row">		
+  			<div class="row">
 	            <div class="col-lg-12">
 	            	<button class="btn btn-primary pull-right" onclick="agregarComentario({{ $registro->id }})">Agregar Comentario</button>
 	            </div>
   			</div>
   			<div class="timeline-container top-circle">
               <section class="timeline">
-
+              @foreach($registro->Comentarios as $comentario)
                 <!-- timeline-block -->
                 <div class="timeline-block">
                   <div class="timeline-point warning bounce-in">
@@ -94,34 +94,19 @@
                   <!-- timeline-point -->
                   <div class="timeline-content bounce-in">
                     <div class="card social-card share full-width ">
-                      <div class="card-header clearfix">
-                        <h5 class="text-warning-dark pull-left fs-12">Stock Market <i class="fa fa-circle text-warning-dark fs-11"></i></h5>
-                        <div class="pull-right small hint-text">
-                          5,345 <i class="fa fa-comment-o"></i>
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
                       <div class="card-description">
-                        <h5 class="hint-text no-margin">Apple Inc.</h5>
-                        <h5 class="small hint-text no-margin">NASDAQ: AAPL - Nov 13 8:37 AM ET</h5>
-                        <h3>111.25 <span class="text-warning-dark"><i class="fa fa-sort-up small text-warning-dark"></i> 0.15 (0.13%)</span></h3>
-                      </div>
-                      <div class="card-footer clearfix">
-                        <div class="pull-left">by <span class="text-warning-dark">John Smith</span></div>
-                        <div class="pull-right hint-text">
-                          Apr 23
-                        </div>
-                        <div class="clearfix"></div>
+                        <h5 class="hint-text no-margin">{{ nl2br($comentario->comentarios) }}</h5>
                       </div>
                     </div>
                     <div class="event-date">
-                      <h6 class="font-montserrat all-caps hint-text m-t-0">Shared</h6>
-                      <small class="fs-12 hint-text">15 January 2015, 06:50 PM</small>
+                      <h6 class="font-montserrat all-caps hint-text m-t-0">{{ $comentario->User->fullName() }}</h6>
+                      <small class="fs-12 hint-text">{{\Carbon\Carbon::parse($comentario->created_at)->diffForHumans()  }}</small>
                     </div>
                   </div>
                   <!-- timeline-content -->
                 </div>
                 <!-- timeline-block -->
+              @endforeach
 
               </section>
               <!-- timeline -->

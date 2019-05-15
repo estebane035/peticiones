@@ -17,5 +17,9 @@ class Comentario extends Model
       'peticion_id', 'user_id', 'comentarios'
   ];
 
-  
+  public function User()
+  {
+    return $this->hasOne('App\User', 'id', 'user_id');
+  }
+
 }

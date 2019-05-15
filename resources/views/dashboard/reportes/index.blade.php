@@ -1,4 +1,4 @@
-@extends('layouts.dashboard', ['menu' => "Peticiones"])
+@extends('layouts.dashboard', ['menu' => "Reportes"])
 
 @section('content')
 
@@ -36,17 +36,25 @@
           <div class="card-block">
             <div class="row">
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group form-group-default required">
                   <label>Latitud</label>
                   <input type="number" id="latitud" class="form-control" required="">
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group form-group-default required">
                   <label>Longitud</label>
                   <input type="number" id="longitud" class="form-control" required="">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="input-daterange input-group" id="datepicker-range">
+                  <input type="text" class="form-control" name="start" id="start" autocomplete="off">
+                  <div class="input-group-addon">to</div>
+                  <input type="text" class="form-control" name="end" id="end" autocomplete="off">
                 </div>
               </div>
 

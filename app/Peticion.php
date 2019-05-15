@@ -16,4 +16,9 @@ class Peticion extends Model
   protected $fillable = [
       'latitud', 'longitud', 'tipo', 'estatus', 'comentarios'
   ];
+
+  public function Comentarios()
+  {
+    return $this->hasMany('App\Comentario', 'peticion_id', 'id');
+  }
 }

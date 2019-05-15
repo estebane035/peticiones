@@ -24,9 +24,45 @@ class PeticionesController extends Controller
       return view('dashboard.peticiones.index');
   }
 
+  public function indexEspecifico($tipo)
+  {
+      return view('dashboard.peticiones.indexEspecifico', ["tipo" => $tipo]);
+  }
+
   public function cargarTabla()
   {
     $registros = Peticion::all();
+    return Datatables::of($registros)
+      ->editColumn("coordenadas", function($registro){
+        return "Latitud: ".$registro->latitud."<br> Longitud: ".$registro->longitud;
+      })
+      ->addColumn('actions', function ($registro) {
+          $eliminar = $editar = $ver = "";
+            $eliminar='<i onclick="eliminar('.$registro->id.')" style="margin-right: 10px;" class="fa fa-trash fa-lg col-xs-3 text-center pointer" title="Delete"></i>';
+            $editar='<i onclick="editar('.$registro->id.')" style="margin-right: 10px;" class="fa fa-pencil fa-lg col-xs-3 text-center pointer" title="Edit"></i>';
+            $ver='<a href="/peticiones/'.$registro->id.'"><i style="margin-right: 10px;" class="fa fa-search fa-lg col-xs-3 text-center pointer" title="Ver"></i></a>';
+          return $editar.$eliminar.$ver;
+      })
+      ->rawColumns(['actions', 'coordenadas'])
+      ->make(true);
+  }
+
+  public function cargarTablaEspecifica($tipo)
+  {
+    switch ($tipo) {
+      case 'Seguridad':
+        $registros = Peticion::where('tipo', 'Seguridad Publica')->get();
+        break;
+      case 'Proteccion':
+        $registros = Peticion::where('tipo', 'Proteccion Civil')->get();
+        break;
+      case 'Asistencia':
+        $registros = Peticion::where('tipo', 'Asistencia Medica')->get();
+        break;
+      default:
+        $registros = Peticion::all();
+        break;
+    }
     return Datatables::of($registros)
       ->editColumn("coordenadas", function($registro){
         return "Latitud: ".$registro->latitud."<br> Longitud: ".$registro->longitud;

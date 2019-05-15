@@ -22,7 +22,9 @@ Route::get('/peticiones/cargarTablaHistorial', 'PeticionesController@cargarTabla
 
 
 //Peticiones
+Route::get('/peticiones/especifica/{tipo}', 'PeticionesController@indexEspecifico');
 Route::get('/peticiones/cargarTabla', 'PeticionesController@cargarTabla');
+Route::get('/peticiones/cargarTabla/{tipo}', 'PeticionesController@cargarTablaEspecifica');
 Route::get('/peticiones/{id_peticion}/delete', 'PeticionesController@delete');
 Route::get('/peticiones/{id_peticion}/atender', 'PeticionesController@atender');
 Route::put('/peticiones/{id_peticion}/atenderPeticion', 'PeticionesController@atenderPeticion');
@@ -34,6 +36,6 @@ Route::post("/comentarios", "ComentariosController@store");
 
 //Reportes
 Route::get("/reportes", 'ReportesController@index');
-Route::get("/reportes/{latitud}/{longitud}/{rango}/{rango_alerta}", 'ReportesController@obtenerPeticiones');
+Route::get("/reportes/{latitud}/{longitud}/{rango}/{rango_alerta}/{start}/{end}", 'ReportesController@obtenerPeticiones');
 
 Auth::routes();
